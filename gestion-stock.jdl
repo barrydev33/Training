@@ -1,0 +1,31 @@
+entity Produit {
+	nom String required minlength(2) maxlength(50),
+	categorie String required,
+	//quantite Integer required,
+	prix Float required,
+	//dateEntree required Instant,
+  	//dateSortie Instant
+}
+
+entity Categorie {
+  	description String required minlength(2) maxlength(50)
+}
+
+entity Fournisseur {
+  	nom String required minlength(2) maxlength(50),
+  	adresse String required,
+  	contact String required,
+  	profil ImageBlob
+}
+
+relationship ManyToOne {
+  	Produit{fournisseur(nom)} to Fournisseur
+}
+
+relationship ManyToOne {
+	Produit{categorie(description)} to Categorie
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with infinite-scroll
