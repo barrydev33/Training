@@ -1,0 +1,7 @@
+entity Categorie {
+  	description String required minlength(2) maxlength(50)
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with infinite-scroll
